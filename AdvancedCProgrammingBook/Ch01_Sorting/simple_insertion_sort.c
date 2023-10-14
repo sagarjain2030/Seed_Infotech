@@ -1,9 +1,11 @@
 #include<stdio.h>
+#define size 5
 int main(void)
 {
-    int a[5] = {11,4,12,1,5};
-    int n = 5;
+    int a[size] = {11,4,12,1,5};
+    int n = size;
 
+    printf("Simple Insertion Sort\n");
     printf("Before sorting: \n");
     for(int i = 0 ; i < n ; i++)
     {
@@ -39,3 +41,20 @@ int main(void)
     }
     printf("\n");
 }
+
+// Output:
+/*
+Simple Insertion Sort
+Before sorting: 
+11 4 12 1 5
+After pass number 1
+4 11 12 1 5
+After pass number 2
+4 11 12 1 5 
+After pass number 3
+1 4 11 12 5
+After pass number 4
+1 4 5 11 12
+After sorting:
+ 1 4 5 11 12
+*/

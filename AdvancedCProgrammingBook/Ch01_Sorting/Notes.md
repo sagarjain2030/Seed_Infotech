@@ -21,3 +21,17 @@
 	- At the end of first pass, largest number is at the end of list.
 	- So at the end of each pass one number is get sorted
 	- [program](bubble_sort.c)
+- Selection Sort :
+	- This algorithm is faster than Bubble sort.
+	- Data movement is less compared to Bubble sort.
+	- Smallest number in the list is replaced at the top of current list.
+	- At each pass, list of start till that pass is sorted.
+	- [program](selection_sort.c)
+- Insertion Sort :
+	- Insertion sort can be of 3 types
+		- Simple Insertion Sort
+		- List Insertion Sort
+		- Insertion Sort using Binary Search
+	- Simple insertion sort is more efficient than Bubble sort.
+	- Each element is picked up and inserted in it's proper place. IF some element in the list is picked for inserting, all elements before it will be in proper order.
+	- [program](simple_insertion_sort.c)

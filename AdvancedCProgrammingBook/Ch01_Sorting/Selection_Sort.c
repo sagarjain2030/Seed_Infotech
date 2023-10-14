@@ -1,11 +1,12 @@
 #include <stdio.h>
+#define size 5
 int main(void)
 {
-    int a[5] = {50, 70, 20, 40, 05};
-    int n = 5;
-
+    int a[size] = {50, 70, 20, 40, 05};
+    int n = size;
+    printf("Selection Sort\n");
     printf("Before sorting: ");
-    for(int i=0;i<5;i++)
+    for(int i=0;i<size;i++)
     {
         printf("%d ",a[i]);
     }
@@ -33,7 +34,7 @@ int main(void)
         }
         printf("After pass number %d\n", i);
         
-        for(int k=0;k<5;k++)
+        for(int k=0;k<size;k++)
         {
             printf("%d ",a[k]);
         }
@@ -41,9 +42,26 @@ int main(void)
     }
 
     printf("After sorting: ");
-    for(int i=0;i<5;i++)
+    for(int i=0;i<size;i++)
     {
         printf("%d ",a[i]);
     }
     printf("\n");
 }
+
+// Output:
+/*
+Selection Sort
+Before sorting: 50 70 20 40 5 
+After pass number 0
+5 70 20 40 50
+After pass number 1
+5 20 70 40 50 
+After pass number 2
+5 20 40 70 50
+After pass number 3
+5 20 40 50 70
+After pass number 4
+5 20 40 50 70
+After sorting: 5 20 40 50 70 
+*/
