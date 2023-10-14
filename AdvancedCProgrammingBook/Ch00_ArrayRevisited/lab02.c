@@ -1,21 +1,48 @@
-// Objective : Use Pointer to pass the entire array to a function
-// Problem Statement : Modify lab01  by writing separate functions to accept and display the average
+// Objective : To declare and Initialize array
+// Problem Statement : Write a program to calculate and display the average marks of 5 subjects 
+// obtained by a student where maximum marks are 100.
+// Write separate functions to accept marks and calculate average.
 
 #include<stdio.h>
 #define size 5
-float average_marks(int * marks, int size);
+void AcceptMarks(int* marks);
+float CalculateAverage(int* marks,int * sum);
 void main(void)
 {
     int marks[size];
-    int sum = 0;
-    float avg = 0.;
     printf("Enter marks of 5 subjects: \n");
-    for(int i = 0; i < size; i++)
-    {
-        scanf("%d",&marks[i]);
-        sum += marks[i];
-    }
-    avg = sum / size;
+    AcceptMarks(marks);
+    int sum = 0;
+    float avg = CalculateAverage(marks,&sum);
     printf("Total marks = %d\n",sum);
     printf("Average marks = %.2f\n",avg);
 }
+
+void AcceptMarks(int* marks)
+{
+    for(int i = 0; i < size; i++)
+    {
+        scanf("%d",&marks[i]);
+    }
+}
+
+float CalculateAverage(int* marks,int * sum)
+{
+    for(int i = 0; i < size; i++)
+    {
+        *sum += marks[i];
+    }
+    return *sum / size;
+}
+
+// Output :
+/*
+Enter marks of 5 subjects: 
+39
+67
+48
+57
+74  
+Total marks = 285
+Average marks = 57.00
+*/
