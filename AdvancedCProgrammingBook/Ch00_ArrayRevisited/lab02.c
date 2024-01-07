@@ -1,5 +1,7 @@
-// Objective : Use Pointer to pass the entire array to a function
-// Problem Statement : Modify lab01  by writing separate functions to accept and display the average
+// Objective : To declare and Initialize array
+// Problem Statement : Write a program to calculate and display the average marks of 5 subjects 
+// obtained by a student where maximum marks are 100.
+// Write separate functions to accept marks and calculate average.
 
 #include<stdio.h>
 #define size 5
