@@ -1,6 +1,6 @@
-- Sorting is a techniqueof arranging data either in ascending or descending order.
-- This enables data to be readily accessed and easlity maintained.
-- Also sorting makes search of element in data faster.
+- Sorting is a technique of arranging data either in ascending or descending order.
+- This enables data to be readily accessed and easily maintained.
+- Also sorting makes search of an element in data faster.
 - There are different methods available to sort the data. The decision of which method to use depends on
 	1. Time spent by programmer in coding a particular algorithm
 	2. Machine time necessary for running for a program.
