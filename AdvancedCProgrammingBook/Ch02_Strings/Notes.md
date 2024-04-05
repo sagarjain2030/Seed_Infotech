@@ -68,8 +68,8 @@ char name[10] = "RAHUL";
     ```
     - In the above example, scanf will accept only 5 characters and add null character at the end.Other characters if provided will be ignored.  
 
-- How to print string?
-    1.using %c and printf
+- How to print string?  
+    1. Using %c and printf
     - code snippet
     ```
     char name[10] = "RAHUL";
@@ -114,7 +114,7 @@ char name[10] = "RAHUL";
 - String Name itself is base address of character array where string is stored. So if string name[10] = "VIRAT", and char* ptr = name, then ptr will point to 'V'. So pointers can be used to access string.
 - String functions
 | Function | Description |
-| --- | --- |
+| :------: | :---------- |
 | strlen() | Returns length of string excluding null character |
 | strcpy() | Copies one string to another |
 | strcat() | Concatenates two strings |
@@ -153,7 +153,7 @@ char name[10] = "RAHUL";
     printf("Name is %s", name);
     ```
     - Here name will store "RAHUL".
-    
+
 
 
 
