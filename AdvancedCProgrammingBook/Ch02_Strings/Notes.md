@@ -18,7 +18,7 @@ name = "RAHUL"; // This is wrong
 // it should be done as
 char name[10] = "RAHUL";
 ```
-- **How to accept string from user?**
+- **How to accept string from user?**  
     1.**Character by character using %c format specifier.**
     - code snippet
     ```
@@ -154,6 +154,48 @@ char name[10] = "RAHUL";
     printf("Name is %s", name);
     ```
     - Here name will store "RAHUL".
+- strcat() function :
+    - It concatenates source string at the end of destination string.
+    - destination should have size equal or greater than sum of lenths of destination and source strings.
+    - return value is destination string base address.
+    - char* strcat(char* dest, const char* src);
+    - code snippet
+    ```
+    char name[10] = "Virat";
+    char name1[10] = "Kohli";
+    strcat(name, name1);
+    printf("Name is %s", name);
+    ```
+    - Here name will store "ViratKohli".
+    - If destination string is not large enough to store concatenated string, then it will overwrite the memory. So it is important to have enough space in destination string.
+- strcmp() function :
+   - It compares two strings. returns and integer based on comparison.
+   - If strings are equal, then it returns 0.
+   - If first string is greater than second string, then it returns positive value.
+   - If first string is smaller than second string, then it returns negative value.
+   - int strcmp(const char* str1, const char* str2);
+    - code snippet
+    ```
+    char name[10] = "Virat";
+    char name1[10] = "Kohli";
+    int result = strcmp(name, name1);
+    printf("Result is %d", result);
+    ```
+    - Here result will be negative value.
+
+- Command Line Arguments:
+  - C program when executed from command line accepts multiple arguments in form of string i.e. array of character arrays.
+  - so main function can be written as
+  ```
+    int main(int argc, char* argv[])
+    {
+        // code
+    }
+    ```
+  - Here argc is number of arguments passed to program and argv is array of character arrays.
+  - argv[0] is always name of program itself.
+  - So argc would always be greater than 0.
+  - These argv arrays can be used in program.
 
 
 
