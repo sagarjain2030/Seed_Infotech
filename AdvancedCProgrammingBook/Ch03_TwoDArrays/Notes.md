@@ -20,4 +20,70 @@ Here fdAmt is an array of 10 elements where each element itself is an array of 5
   - *(fdAmt + 2) + 1 --> gives the address of 2nd element of 3rd row
   - *(*(fdAmt + 2) + 1) --> gives the value of 2nd element of 3rd row
 - The above expression can also be written as fdAmt[2][1].
-- 
+- Accepting a 2D array
+```
+for(row = 0; row < noOfRows ; row++)
+  {
+    for(col = 0; col < noOfCols; col++)
+    {
+      scanf("%d", &fdAmt[row][col]);
+    }
+  }
+```
+- Displaying a 2D array
+```
+for(row = 0; row < noOfRows ; row++)
+  {
+    for(col = 0; col < noOfCols; col++)
+    {
+      printf("%d", fdAmt[row][col]);
+    }
+  }
+```
+- Passing 2D array to function
+  - 2D array can be passed to function in 2 ways:
+    1. Subscript method:
+    ```
+    int main()
+    {
+      int fdAmt[0][2],noofcustomers;
+      // intialize data
+      disp(fdAmt, noofcustomers);
+    }
+    void disp(int fdAmt[][2], int num)
+    {
+      // display data
+      for(row = 0; row < num ; row++)
+      {
+        for(col = 0; col < 2; col++)
+        {
+          printf("%d", fdAmt[row][col]);
+        }
+      } 
+    }
+    ```
+    2. Pointer method:
+    ```
+    int main()
+    {
+      int fdAmt[0][2],noofcustomers;
+      // intialize data
+      disp(*fdAmt, noofcustomers);
+    }
+    void disp(int (*fdAmt)[2], int num)
+    {
+      // display data
+      for(row = 0; row < num ; row++)
+      {
+        for(col = 0; col < 2; col++)
+        {
+          printf("%d", fdAmt[row][col]);
+        }
+      } 
+    }
+    ```
+- Passing 2D array to function using pointer method is more efficient as it does not require to pass the number of columns.
+- Here *fdAmt is a pointer to ana array of 2 integers.
+- Since subscript [] has higher precedence than *, so 
+  - if we have (*fdAmt)[2] --> it will give 2nd element of 0th row i.e. fdAmt[0][2].
+  - if we have *fdAmt[2] --> it will give 0th element of 2nd row i.e. fdAmt[2][0].
