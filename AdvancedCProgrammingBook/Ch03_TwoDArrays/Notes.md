@@ -87,3 +87,10 @@ for(row = 0; row < noOfRows ; row++)
 - Since subscript [] has higher precedence than *, so 
   - if we have (*fdAmt)[2] --> it will give 2nd element of 0th row i.e. fdAmt[0][2].
   - if we have *fdAmt[2] --> it will give 0th element of 2nd row i.e. fdAmt[2][0].
+- Dynamic memory allocation:
+  - Size of array is fixed, thus either insufficient memory or wastage of memory can happen.
+  - For 1D array, we must know size/number of elements and for 2D array , we must know at least number of rows.
+  - To overcome this, we can use dynamic memory allocation.
+  - Allocating memory at run time is called dynamic memory allocation.This memory is allocated from heap memory.
+  - malloc(), calloc() and realloc() are used for dynamic memory allocation.
+  - function free() is used to deallocate the memory allocated dynamically.
