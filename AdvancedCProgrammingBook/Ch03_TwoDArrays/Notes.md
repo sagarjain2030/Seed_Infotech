@@ -94,3 +94,27 @@ for(row = 0; row < noOfRows ; row++)
   - Allocating memory at run time is called dynamic memory allocation.This memory is allocated from heap memory.
   - malloc(), calloc() and realloc() are used for dynamic memory allocation.
   - function free() is used to deallocate the memory allocated dynamically.
+- Malloc:
+  - It returns a pointer of type void to the starting location of the block of memory allocated.
+  - void* malloc(size of each element * number of elements);
+  - This allocated a block of memory  = size of each element * number of elements.
+  - If memory cannot be allocated or insufficient memory is available, it returns NULL.
+  - Ex. int *p;
+        p = (int*)malloc(5 * sizeof(int));
+        Here the return pointer provided by malloc in tyoe casted to int*.
+- Calloc:
+  - It is similar to malloc. The space of each element is initialized to binary zero.
+  - void* calloc(size of each element, number of elements);
+  - This allocates space for an array of elements, each occupying size of element bytes of memory.
+  - Calloc instead of single chunk of storage, handles array of elements all intialized to zero.
+  - Ex. int *p;
+        p = (int*)calloc(5, sizeof(int));
+- Realloc:
+  - This function is used to append new memory to the existing memory block.
+  - void* realloc(void* ptr, size_t size);
+  - This function changes size of spaces allocated to ptr by amount size.
+  - This new memory could be adjacent to the existing memory or could be allocated entirely at different location, depending on availability of memory.
+  - If new memory block is allocated, content of existing block is copied to new block bit by bit to new block.
+- Free:
+  - Free frees specified memory block to be used for another purpose.
+  - This mus have pointer spcified by calloc, malloc or realloc.    
