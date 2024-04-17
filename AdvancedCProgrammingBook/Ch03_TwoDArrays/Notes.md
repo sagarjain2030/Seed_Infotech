@@ -117,4 +117,45 @@ for(row = 0; row < noOfRows ; row++)
   - If new memory block is allocated, content of existing block is copied to new block bit by bit to new block.
 - Free:
   - Free frees specified memory block to be used for another purpose.
-  - This mus have pointer spcified by calloc, malloc or realloc.    
+  - This must have pointer spcified by calloc, malloc or realloc.    
+- It is responsibility of programmer to free dynamically allocated memory. If not done then there will be memory leakage.
+- Do not allocate & deallocate memory in loop, as it is time consuming.
+- Array of pointers:
+  - In many cases of 2D array, only one dimension is known. So array of pointers is used in such cases.
+  - Here remember,
+    1. [] has higher precedence than *
+    2. Number of second dimension length is accepted from user.
+    3. Memory is allocated on heap.
+    ```  
+    #define RowSize 3
+    int main()
+    {
+      int *pFdAmount[RowSize], i = 0, row = 0, col = 0, colSize;
+      for(i = 0; i < RowSize; i++)
+      {
+        pFdAmount[i] = (int*)malloc(colSize * sizeof(int));
+        // Here ColSize is user input accepted before in program.
+        // Perform operation on pFdAmount
+        for(i = 0; i < RowSize; i++)
+        {
+          free(pFdAmount[i]);
+        }
+      }
+    }
+    ```
+  -  Here, pFdAmount is array of pointers on Stack but each pointer has memory allocated on heap.
+  -  ![Array of Pointers](ArrayofPointers.jpg)
+- Pointer to pointer:
+  - pointer to pointer holds address of another pointer
+  ```
+  int **ptop;
+  int number1 = 10;
+  int *p;
+  p = &number1;
+  ptop = &p;
+  ``` 
+  - Here, ptop is on stack.
+    - (*ptop) = *(*(2896)) = *(1000) = 10
+  - ![Pointer to Pointer](ptop.jpg)
+  - Sometimes sizze of row and columns both are unknown at compile time. In such cases, memory needs to be allocated using pointer to pointer.
+  - ![Pointer to Pointer](pointerToPointer.jpg)
