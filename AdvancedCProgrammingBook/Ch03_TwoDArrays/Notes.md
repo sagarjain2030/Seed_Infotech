@@ -159,3 +159,97 @@ for(row = 0; row < noOfRows ; row++)
   - ![Pointer to Pointer](ptop.jpg)
   - Sometimes sizze of row and columns both are unknown at compile time. In such cases, memory needs to be allocated using pointer to pointer.
   - ![Pointer to Pointer](pointerToPointer.jpg)
+  ```
+  int **pTop, noofRows, noofCols;
+  int row, col;
+  pTop = (int**)malloc(noofRows * sizeof(int*));
+  for(row = 0; row < noofRows; row++)
+  {
+    pTop[row] = (int*)malloc(noofCols * sizeof(int));
+  }
+  for(row = 0; row < noofRows; row++)
+  {
+    for(col = 0; col < noofCols; col++)
+    {
+      scanf("%d", pTop[row] + col);
+    }
+  }
+  for(row = 0; row < noofRows; row++)
+  {
+    for(col = 0; col < noofCols; col++)
+    {
+      printf("%d", *(*(pTop + row) + col));
+    }
+  }
+  for(row = 0; row < noofRows; row++)
+  {
+    free(pTop[row]);
+  }
+  free(pTop);
+  ```
+  - Dynamic memory allocation for strings
+    - malloc, calloc and realloc can be used to allocated memory dynamically to string i.e. 1D character array
+    - The pointer returned by this function must be typecasted to char*.
+    ```
+    char* acceptNames(char* pNames)
+    {
+      char temp[15];
+      printf("\nEnter a string:");
+      gets(temp);
+      pNames = (char*)malloc(strlen(temp) + 1);
+      strcpy(pNames, temp);
+      return pNames; 
+    }
+    int main()
+    {
+      char *pNames;
+      pNames = acceptNames(pNames);
+      printf("\nEntered string is %s", pNames);
+      free(pNames);
+    } 
+    ```
+- 2D array of characters:
+  - 2D array of characters is nothing but array of strings.Here number of strings are stored in contiguous memory location. This can be done as follow
+  ```
+  char custName[5][20] = {"Rajesh", "Ramesh", "Suresh", "Mahesh", "Naresh"};
+  ```
+- Code to accept and display strings:
+```
+  char custName[5][20];
+  int i;
+  for(i = 0; i < 5; i++)
+  {
+    printf("\nEnter name:");
+    gets(custName[i]);
+  }
+  for(i = 0; i < 5; i++)
+  {
+    printf("\nName is %s", custName[i]);
+  }
+  ```
+- 2D array and array of pointers:  
+
+| 2D Array | Array of pointers |  
+| :------: | :----------------:|
+| Char custName[10][20]; | char* custNames[10] |
+| no. of bytes reserved = 10*20 = 200 | no. of bytes reserved = 10*2 = 20 |
+| Wastage of memory if names are smaller than 20 characters | No wastage of memory as memory allocated dynamically based on size of each name |
+
+```
+void acceptNames(char** names)
+{
+  int num, i;
+  char temp[25];
+  printf("\nEnter number of names:");
+  scanf("%d", &num);
+  names = (char**)malloc(num * sizeof(char*));
+  for(i = 0; i < num; i++)
+  {
+    printf("\nEnter name:");
+    fflush(stdin);
+    gets(temp);
+    names[i] = (char*)malloc(strlen(temp) + 1);
+    strcpy(names[i], temp);
+  }
+}
+```
