@@ -15,7 +15,7 @@ int main()
     for(int i = 0; i < n; i++)
     {
         printf("Enter the marks of subject %d\n", i + 1);
-        scanf("%d", subjects[i]);
+        scanf("%d", &subjects[i]);
     }
     int sum = 0;
     for(int i = 0; i < n; i++)
