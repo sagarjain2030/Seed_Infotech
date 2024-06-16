@@ -33,6 +33,9 @@ void GetIntegerData()
     {
         printf("Element %d : %d\n",i + 1,mat1[i]);
     }
+    int option = 0;
+    printf("do wou want to enter more elements : \n Enter 1 for Yes, 0 for No");
+    scanf("%d", &option);
 }
 
 void GetCharData()
@@ -50,6 +53,8 @@ void GetCharData()
     {
         printf("Enter element %d : ", i + 1);
         char ch = getchar();
+        if(ch == '\n')
+            ch = getchar();
         mat1[i] = ch;
     }
     printf("Elements inserted are: \n");
@@ -57,6 +62,35 @@ void GetCharData()
     {
         printf("Element %d : %c\n",i + 1,mat1[i]);
     }
+    int option = 0;
+    printf("do wou want to enter more elements : \n Enter 1 for Yes, 0 for No");
+    scanf("%d", &option);
+}
+
+void GetDecimalData()
+{
+    int numElements = 0;
+    printf("Enter number of elements of type float you want to enter : \n");
+    scanf("%d", &numElements);
+    double* mat1 = (double *)malloc(sizeof(double) * numElements);
+    for(int i = 0; i < numElements; i++)
+    {
+        mat1[i] = 0.;
+    }
+    printf("Elements to be inserted : \n");
+    for(int i = 0; i < numElements; i++)
+    {
+        printf("Enter element %d : ", i + 1);
+        scanf("%lf",&mat1[i]);
+    }
+    printf("Elements inserted are: \n");
+    for(int i = 0; i < numElements; i++)
+    {
+        printf("Element %d : %.3lf\n",i + 1,mat1[i]);
+    }
+    int option = 0;
+    printf("do wou want to enter more elements : \n Enter 1 for Yes, 0 for No : ");
+    scanf("%d", &option);
 }
 
 int getOption()
@@ -82,6 +116,7 @@ int getOption()
         break;    
     case 3:
         printf("Decimal\n");
+        GetDecimalData();
         break;    
     
     default:
