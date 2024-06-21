@@ -5,9 +5,6 @@
 // a. allocate the space
 // b. accept elements
 // c. display elements
-// after entering the elements if the use wants to enter more data, reallocate the space
-// to accept more elements and display them.
-// Free the allocated space if the user does not want to enter more elements.
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -33,9 +30,6 @@ void GetIntegerData()
     {
         printf("Element %d : %d\n",i + 1,mat1[i]);
     }
-    int option = 0;
-    printf("do wou want to enter more elements : \n Enter 1 for Yes, 0 for No");
-    scanf("%d", &option);
 }
 
 void GetCharData()
@@ -107,6 +101,7 @@ int getOption()
     switch (option)
     {
     case 1:
+        
         printf("Integer\n");
         GetIntegerData();
         break;    
