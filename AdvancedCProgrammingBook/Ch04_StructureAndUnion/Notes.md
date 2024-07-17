@@ -1,29 +1,75 @@
-- Array can store only elements with same type.But we may want to group different types.
-- One way to do is to handle multiple arrays, each for different types while keeping indices of an entity same.But with increasing amount of data and multiple operations of data, it is difficult to handle.
-- This problem can be resolved by using structure. So structure is a user defined type data type. It is convinient way to group several pieces of related information together. 
-- The characteristics/attributes of relation are structure members.
-- Structures are useful, not only because they can hold different types of variables but also because they can form base for more complex constructions like linked list.
-- Structure definition :
+- Structure:
+  - Array can store only elements with same type.But we may want to group different types.
+  - One way to do is to handle multiple arrays, each for different types while keeping indices of an entity same.But with increasing amount of data and multiple operations of data, it is difficult to handle.
+  - This problem can be resolved by using structure. So structure is a user defined type data type. It is convinient way to group several pieces of related information together. 
+  - The characteristics/attributes of relation are structure members.
+  - Structures are useful, not only because they can hold different types of variables but also because they can form base for more complex constructions like linked list.
+  - Structure definition :
+    ```
+    structure <structure type name>
+    {
+      data_type member_1;
+      data_type member_2;
+      .
+      .
+      .
+      data_type member_n;
+    };
+    ```
+  - Structure type name is name used to define structure so that it's variable can be created.
+  - Definition ends with semicolon.
+  - Each member is declared with it's own data type and unique name within structure.
+  - members cannot be initilized inside structure definition.
+  - In large program, structures usually defined in header files.
+  - Structure definition/declaration acts as a template.To use structure, structure variable must be created.
+    ```
+    struct <structure type name> variable_1;
+    ```
+  - Memory allocated for each structure variable is sume of bytes required by all it's members.
+  - Structure variables can be defined at the time of definition.So if variable1 is a structure variable then 
+    ```
+    struct <structure type name> variable_1 = {member1, member2, ... member n};
+    ```
+  - Structure variables can also be defined in structure type definition after '}' but before ';'
+    ```
+    structure <structure type name>
+    {
+      data_type member_1;
+      data_type member_2;
+      .
+      .
+      .
+      data_type member_n;
+    }variable1;
+    ``` 
+  - Members of struct variables can be accessed using dot(.) operator if structure variable is normal variable. They can be accessed using arrow(->) operator if structure variable is pointer. 
+- Typedef:
+  - Using typedef, a new name can be assigned to an existing data type or to a complex data type.
+  - Only new names can be provided to builtin or already defined/created user defined data types.
+  - Typedef does not create any new datatype.
+  - Variables can only be created using the new name after typedef has been established.
+  typedef type new_name
   ```
-  structure <structure type name>
+  typedef int numerical;
+  numerical x = 1;
+  ```   
+  - Typedef is useful in case of structure, as it eliminates repeated use of struct tag while defining variables.
+  ```
+  typedef struct 
   {
-    data_type member_1;
-    data_type member_2;
-    .
-    .
-    .
-    data_type member_n;
-  };
-  ```
-- Structure type name is name used to define structure so that it's variable can be created.
-- Definition ends with semicolon.
-- Each member is declared with it's own data type and unique name within structure.
-- members cannot be initilized inside structure definition.
-- In large program, structures usually defined in header files.
-- Structure definition/declaration acts as a template.To use structure, structure variable must be created.
-  ```
-  struct <structure type name> variable_1;
-  ```
+    int custId;
+    char custName;
+    float balAmt;
+  }saveAcc s1,s2;
+  saveAcc s3;
+  ``` 
+  - Here s1 and s2 are structure variables of struct which is given new name of saveAcc using typedef. When we are creating s3, we don't need to add struct tag. but simply using new name saveAcc, we can define s3.
+  - Typedef resolves portability issues of code for running on different machines.
+  - It also provides better readability in program and other documentation.
+  - Tow variables of same structure type can be copied in same way as ordinary variables. If p1 and p2 are variables of same structure type and
+  p1 = {1, 2};
+  p2 = p1 // then it means p2 = {1,2};
+  - Here it seems that entire structure is getting copied to another structure but remember, member wise copy take place; where the values of each member are copied bit by bit.   
 
 
 - Two dimensional array is also array of arrays.
