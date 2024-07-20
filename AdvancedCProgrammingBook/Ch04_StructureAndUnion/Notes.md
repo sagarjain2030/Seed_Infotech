@@ -69,7 +69,46 @@
   - Tow variables of same structure type can be copied in same way as ordinary variables. If p1 and p2 are variables of same structure type and
   p1 = {1, 2};
   p2 = p1 // then it means p2 = {1,2};
-  - Here it seems that entire structure is getting copied to another structure but remember, member wise copy take place; where the values of each member are copied bit by bit.   
+  - Here it seems that entire structure is getting copied to another structure but remember, member wise copy take place; where the values of each member are copied bit by bit.
+  - Any logical operations on structures is not permitted in C. But in C++, by using concept of overloading logical operations can be performed on structures.
+- Pointer to Structure:
+  - Like pointer to variable , pointer to structurecan also be discussed,but in this case , pointer points to entire structure.
+  ```
+  saveAcc s1;
+  saveAcc *ps;
+  ps = &s1;
+  ps->custName;
+  ps->balAmt;
+  // This way, we can pass only base address of structure 
+  // and still can access all data members of it.
+  ```   
+  - Structure data members are accessed using arrow (->) operator.
+- Passing structure to a function can be done in 3 ways:
+  1. Individual members of structures are passed:
+     - Similar to normal parameter passing.
+     - It defeats the very purpose of using structure.  
+  2. Structure is passed as pass by value:
+     - It is necessary to return structure again as it would be then copied to original structure.
+     - Else operations performed on structure members will not be reflected back in to original structure. 
+  3. Pointer to base address of structure can be passed as pass by address:
+     - Instrad of passing an entire structure, which can be huge, it is better to pass it by address.
+     - This will also remove requirement of returning the structure as any operations performed on structure members are performed directly on original structure members.
+- Array of structure:
+  - Array of structure works similar to array of built in types.
+  ```
+  structure_name array_name[number_of_elements]
+  ```
+  - Array elements i.e. structures can be accessed using index of array and members with dot operator.
+  ```
+  ex. saveAcc saveAccArray[10];
+  saveAcc newList[3] = {
+                          {101, "Rohit", 1500.00},
+                          {102, "Virat", 2000.0},
+                          {103,"Hardik", 1550.0}};
+  printf("%s",newList[1].custName) //Virat
+  ```
+  - Also array can be accessed using pointer
+
 
 
 - Two dimensional array is also array of arrays.
