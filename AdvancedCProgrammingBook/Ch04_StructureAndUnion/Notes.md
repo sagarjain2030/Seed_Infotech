@@ -108,8 +108,61 @@
   printf("%s",newList[1].custName) //Virat
   ```
   - Also array can be accessed using pointer
+  ```
+   saveAcc* ps = newList;
+   ps->custname = "Sagar";
+   ps++; //ps will point to next structure element
+  ```
+- Nested Structure:
+  - One structure can be part of another structure with which hierarchy of structures can be created
+  ```
+  struct address
+  {
+    char phone[15];
+    char city[20];
+    int pin;
+  }
 
-
+  typedef struct
+  {
+    int custId;
+    char custName[50];
+    float balAmount;
+    struct address addr;
+  }saveAcc;
+  ``` 
+  - In such cse, the structure included in another structure must have definition before enclosing structure.
+  - The members of nested structure can be accessed with an additional dot operator 
+  - The nested structures are used to create more complex datatypes.
+- Dynamica memory allocation for structure:
+  - Structure memory can be allocated dynamically 
+  ```
+  saveAcc* pS;
+  int number;
+  printf("Enter number of customers: ");
+  scanf("%d", &number);
+  pS = (saveAcc*)malloc(number * sizeof(saveAcc));
+  ``` 
+  - pS would have dynamically allocated memory of size (number * sizeof(saveAcc))
+- Union:
+  - Unions are similar to structure as both are used to group number of different types of data.But unlike structure , union stores different data types in same memory space(not simultaneously)
+  - Size  of union is size of it's largest data types.
+  - Unions are used where we need to hold mixture of data types in some order which is not known in advanced.
+  ```
+  union tag
+  {
+    daatype1 member1;
+    daatype2 member2;
+    .
+    .
+    .
+    daatypen membern;
+  }unionVariable;
+  ``` 
+  - union elements are accessed with dot (.) operator or arrow(->) if it's pointer to union.
+  - In union, all member are stored at same memory location., so pointer points directly to member variable initialized.
+  - Data members of union may be structures and structures may have union as data member.
+  - Similar to structure, union have same operations like accessing union members, taking address, 
 
 - Two dimensional array is also array of arrays.
 - [storage class] datatype array_name[row_size][column_size]
