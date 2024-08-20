@@ -1,15 +1,19 @@
-// Define an enumerated type "Catgory"
-// It should have values like MAGAZINE,NOVELS,ENCLYPEDEA,COOKING etc
-// Also declare a structure "publisher" that has pubName and pubAddress
-// as members. Modify the structure "book" to include variables of type
-// category and publisher. Perform following operations
-// 1. Accept the data for book
-// 2. Display the data of the book
-// Category should be displayed as string
+// Consider same structure as lab005, write a program to accept
+// number of records from the user at runtime. Accordingly allocated memory
+// for the number of books ar runtime. 
+// *** Did not COVERED***
+// The program should also diplay following 
+// menu to perform operations.
+// 1. Add record.
+// 2. Delete record based on bookID.
+// 3. Modify record based on bookID.
+// 4.  Display record.
 
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+static int bookIdIndex = 0;
+int numofBooks = -1;
 
 typedef enum 
 {
@@ -37,7 +41,7 @@ typedef struct
 
 int readBookData(Book* b)
 {
-    b->bookId = rand();
+    b->bookId = bookIdIndex++;
     printf("Enter details of book:\n");
     printf(" Enter name of book:");
     fgets(b->title, sizeof(b->title), stdin);
@@ -119,22 +123,36 @@ void printBookData(Book* b)
         printf("Book price is : %.3lf\n", b->price);
         printf("Book type is : %s\n",getCategory(b->category_name));
         printf("Book pubishing house is : %s ", b->pub.pubName);
-        printf("And it's address is : %s", b->pub.pubAddress);
+        printf("And it's address is : %s\n", b->pub.pubAddress);
     }
 }
 
 int main()
 {
-    Book b1;
-    int res = readBookData(&b1);
+    Book* book;
+    while(numofBooks < 1)
+    {
+        printf("Enter number of book records you want to enter:");
+        scanf("%d",&numofBooks);
+    }
+    while (getchar() != '\n');
+    book = (Book*)malloc(sizeof(Book) * numofBooks);
+
+    int res = 0;
+    for(int i = 0; i < numofBooks; i++)
+    {
+        res = readBookData(&book[i]);
+    }
     if(res == -1)
     {
         printf("Something went wrong while reading book data.\n");
     }
     else
     {
-        printBookData(&b1);
+        for(int i = 0; i < numofBooks; i++)
+        {
+            printBookData(&book[i]);
+        }
     }
-
-   return 0;
+    return 0;
 }
